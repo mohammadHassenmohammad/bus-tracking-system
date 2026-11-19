@@ -1,0 +1,166 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function getUserRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && (getUserRole() == 'super_admin' || getUserRole() == 'admin');
+    }
+
+    function isCoordinator() {
+      return isAuthenticated() && (getUserRole() == 'coordinator' || isAdmin());
+    }
+
+    function isDriver() {
+      return isAuthenticated() && getUserRole() == 'driver';
+    }
+
+    function isStudent() {
+      return isAuthenticated() && getUserRole() == 'student';
+    }
+
+    function isGuardian() {
+      return isAuthenticated() && getUserRole() == 'guardian';
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // User profile records
+    match /users/{userId} {
+      allow read: if isAuthenticated() && (isOwner(userId) || isCoordinator());
+      allow create: if isAuthenticated() && isOwner(userId);
+      allow update: if isAuthenticated() && (isOwner(userId) && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['role', 'isApproved'])) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Student specific records
+    match /students/{studentId} {
+      allow read: if isAuthenticated() && (
+        isCoordinator() ||
+        (isStudent() && request.auth.uid == studentId) ||
+        (isGuardian() && exists(/databases/$(database)/documents/guardianStudentLinks/$(request.auth.uid + '_' + studentId)))
+      );
+      allow write: if isCoordinator();
+    }
+
+    // Guardian to Student mapping
+    match /guardianStudentLinks/{linkId} {
+      allow read: if isAuthenticated() && (
+        isCoordinator() ||
+        resource.data.guardianId == request.auth.uid ||
+        resource.data.studentId == request.auth.uid
+      );
+      allow write: if isCoordinator();
+    }
+
+    // Bus fleet records
+    match /buses/{busId} {
+      allow read: if isAuthenticated();
+      allow write: if isCoordinator();
+    }
+
+    // Routes and stops
+    match /routes/{routeId} {
+      allow read: if isAuthenticated();
+      allow write: if isCoordinator();
+    }
+
+    match /stops/{stopId} {
+      allow read: if isAuthenticated();
+      allow write: if isCoordinator();
+    }
+
+    // Trips (Active and Historical)
+    match /trips/{tripId} {
+      allow read: if isAuthenticated();
+      allow create: if isCoordinator() || (isDriver() && request.resource.data.driverId == request.auth.uid);
+      allow update: if isCoordinator() || (isDriver() && resource.data.driverId == request.auth.uid);
+      allow delete: if isAdmin();
+    }
+
+    // Attendance records (Boarding and Exit)
+    match /attendance/{attendanceId} {
+      allow read: if isAuthenticated() && (
+        isCoordinator() ||
+        (isStudent() && resource.data.studentId == request.auth.uid) ||
+        (isGuardian() && exists(/databases/$(database)/documents/guardianStudentLinks/$(request.auth.uid + '_' + resource.data.studentId))) ||
+        (isDriver() && resource.data.verifiedByDriverId == request.auth.uid)
+      );
+      // Only authorized drivers and coordinators can write verified attendance
+      allow create: if isAuthenticated() && (
+        isCoordinator() ||
+        (isDriver() && request.resource.data.verifiedByDriverId == request.auth.uid && request.resource.data.status in ['boarded', 'dropped'])
+      );
+      allow update: if isCoordinator();
+      allow delete: if isAdmin();
+    }
+
+    // Emergency incidents and breakdowns
+    match /incidents/{incidentId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && (isDriver() || isCoordinator());
+      allow update: if isCoordinator() || (isDriver() && resource.data.reportedBy == request.auth.uid);
+      allow delete: if isAdmin();
+    }
+
+    // Nearby bus assistance requests
+    match /assistanceRequests/{requestId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && (isDriver() || isCoordinator());
+      allow update: if isCoordinator() || isDriver();
+      allow delete: if isAdmin();
+    }
+
+    // Missed-bus requests
+    match /missedBusRequests/{requestId} {
+      allow read: if isAuthenticated() && (
+        isCoordinator() ||
+        (isStudent() && resource.data.studentId == request.auth.uid)
+      );
+      allow create: if isStudent() && request.resource.data.studentId == request.auth.uid;
+      allow update: if isCoordinator();
+      allow delete: if isAdmin();
+    }
+
+    // College transport announcements & holidays
+    match /announcements/{announcementId} {
+      allow read: if isAuthenticated();
+      allow write: if isCoordinator();
+    }
+
+    match /holidays/{holidayId} {
+      allow read: if isAuthenticated();
+      allow write: if isCoordinator();
+    }
+
+    // Vehicle Maintenance Logs
+    match /vehicleMaintenance/{maintenanceId} {
+      allow read: if isCoordinator() || isDriver();
+      allow write: if isCoordinator();
+    }
+
+    // System audit logs
+    match /auditLogs/{logId} {
+      allow read: if isAdmin();
+      allow create: if isAuthenticated();
+      allow update, delete: if false; // Append-only audit trail
+    }
+
+    // Research experiments metrics
+    match /researchMetrics/{metricId} {
+      allow read: if isAuthenticated();
+      allow write: if isCoordinator();
+    }
+  }
+}
+

@@ -1,0 +1,5 @@
+IncidentID,StrandedStudents,NearestBusID,NearestSpareSeats,NearestFeasible,MautRankedBusID,MautSpareSeats,MautFeasible
+INC-01,18,Bus 12,4,false,Bus 07,24,true
+INC-02,25,Bus 18,12,false,Bus 07,28,true
+INC-03,8,Bus 24,10,true,Bus 24,10,true
+INC-04,32,Bus 12,2,false,Bus 31,35,true

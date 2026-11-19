@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 520" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <rect width="1100" height="520" fill="#0B132B" rx="16" />
+
+  <!-- Header -->
+  <g transform="translate(50, 40)">
+    <text x="0" y="0" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800">
+      Multi-Role User Experience Matrix
+    </text>
+    <text x="0" y="24" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">
+      One Shared Codebase • 4 Independent Contexts • Strict Role-Based Access Control (RBAC)
+    </text>
+  </g>
+
+  <!-- 4 COLUMN CARDS -->
+
+  <!-- CARD 1: DRIVER -->
+  <g transform="translate(50, 90)" filter="url(#shadow)">
+    <rect width="230" height="390" rx="12" fill="url(#cardGrad)" stroke="#10B981" stroke-width="1.5" />
+    <!-- Header -->
+    <rect width="230" height="52" rx="12" fill="#065F46" />
+    <text x="20" y="32" fill="#FFFFFF" font-family="sans-serif" font-size="15" font-weight="800">🚌 Bus Driver</text>
+    <!-- Content List -->
+    <g transform="translate(18, 70)" font-family="sans-serif" font-size="11" fill="#E2E8F0">
+      <text x="0" y="16" font-weight="700" fill="#34D399">PRIMARY INTERFACE:</text>
+      <text x="0" y="34">• Google Maps Turn-by-Turn HUD</text>
+      <text x="0" y="52">• Speedometer &amp; Speed Limits</text>
+      <text x="0" y="70">• Next Stop Distance &amp; Arrival</text>
+      <text x="0" y="88">• Collapsible Stops Timeline</text>
+
+      <text x="0" y="120" font-weight="700" fill="#34D399">KEY CAPABILITIES:</text>
+      <text x="0" y="138">• Start / Pause / Resume Trip</text>
+      <text x="0" y="156">• QR Boarding Verification</text>
+      <text x="0" y="174">• Passenger Manifest Check-In</text>
+      <text x="0" y="192">• Hold-to-Confirm SOS Alarm</text>
+      <text x="0" y="210">• Dynamic Road Rerouting</text>
+
+      <text x="0" y="242" font-weight="700" fill="#34D399">SECURITY BOUNDARY:</text>
+      <text x="0" y="260">• Locked to Authorized Bus</text>
+      <text x="0" y="278">• Cannot View Other Manifests</text>
+      <text x="0" y="296">• Hardware GPS Ingestion Only</text>
+    </g>
+  </g>
+
+  <!-- CARD 2: STUDENT -->
+  <g transform="translate(305, 90)" filter="url(#shadow)">
+    <rect width="230" height="390" rx="12" fill="url(#cardGrad)" stroke="#3B82F6" stroke-width="1.5" />
+    <!-- Header -->
+    <rect width="230" height="52" rx="12" fill="#1E40AF" />
+    <text x="20" y="32" fill="#FFFFFF" font-family="sans-serif" font-size="15" font-weight="800">🎓 Student</text>
+    <!-- Content List -->
+    <g transform="translate(18, 70)" font-family="sans-serif" font-size="11" fill="#E2E8F0">
+      <text x="0" y="16" font-weight="700" fill="#60A5FA">PRIMARY INTERFACE:</text>
+      <text x="0" y="34">• Live Moving Bus on Route Map</text>
+      <text x="0" y="52">• Road-Route Polyline Corridor</text>
+      <text x="0" y="70">• Predictive ETA to Pickup Stop</text>
+      <text x="0" y="88">• Live Seat Occupancy Indicator</text>
+
+      <text x="0" y="120" font-weight="700" fill="#60A5FA">KEY CAPABILITIES:</text>
+      <text x="0" y="138">• Auto-Rotating QR Boarding Pass</text>
+      <text x="0" y="156">• Missed Bus Assistant (Rescue)</text>
+      <text x="0" y="174">• 1-Click Journey Link Sharing</text>
+      <text x="0" y="192">• Proximity Alert Notifications</text>
+      <text x="0" y="210">• College Digital ID Card</text>
+
+      <text x="0" y="242" font-weight="700" fill="#60A5FA">SECURITY BOUNDARY:</text>
+      <text x="0" y="260">• Role Mismatch Guard Active</text>
+      <text x="0" y="278">• Scoped to Assigned Route</text>
+      <text x="0" y="296">• 15-Min Expiring HMAC QR</text>
+    </g>
+  </g>
+
+  <!-- CARD 3: PARENT -->
+  <g transform="translate(560, 90)" filter="url(#shadow)">
+    <rect width="230" height="390" rx="12" fill="url(#cardGrad)" stroke="#8B5CF6" stroke-width="1.5" />
+    <!-- Header -->
+    <rect width="230" height="52" rx="12" fill="#5B21B6" />
+    <text x="20" y="32" fill="#FFFFFF" font-family="sans-serif" font-size="15" font-weight="800">👨‍👩‍👧 Parent / Guardian</text>
+    <!-- Content List -->
+    <g transform="translate(18, 70)" font-family="sans-serif" font-size="11" fill="#E2E8F0">
+      <text x="0" y="16" font-weight="700" fill="#C084FC">PRIMARY INTERFACE:</text>
+      <text x="0" y="34">• Verified Child Safety Banner</text>
+      <text x="0" y="52">• Child Selector Switcher Tabs</text>
+      <text x="0" y="70">• Geofence Radius Slider (0.5-2.5km)</text>
+      <text x="0" y="88">• Verified Journey Audit Log</text>
+
+      <text x="0" y="120" font-weight="700" fill="#C084FC">KEY CAPABILITIES:</text>
+      <text x="0" y="138">• Real-time Boarding Confirmation</text>
+      <text x="0" y="156">• Estimated College Arrival Time</text>
+      <text x="0" y="174">• Driver Speed &amp; Route Telemetry</text>
+      <text x="0" y="192">• 1-Tap Call Driver Speed Dial</text>
+      <text x="0" y="210">• Campus Helpdesk Hotline</text>
+
+      <text x="0" y="242" font-weight="700" fill="#C084FC">SECURITY BOUNDARY:</text>
+      <text x="0" y="260">• Strictly Scoped to Linked Child</text>
+      <text x="0" y="278">• Cross-Student Access Forbidden</text>
+      <text x="0" y="296">• Verified Guardian Records Only</text>
+    </g>
+  </g>
+
+  <!-- CARD 4: ADMIN / COORDINATOR -->
+  <g transform="translate(815, 90)" filter="url(#shadow)">
+    <rect width="235" height="390" rx="12" fill="url(#cardGrad)" stroke="#F59E0B" stroke-width="1.5" />
+    <!-- Header -->
+    <rect width="235" height="52" rx="12" fill="#92400E" />
+    <text x="20" y="32" fill="#FFFFFF" font-family="sans-serif" font-size="15" font-weight="800">🛡️ Admin &amp; Dispatch</text>
+    <!-- Content List -->
+    <g transform="translate(18, 70)" font-family="sans-serif" font-size="11" fill="#E2E8F0">
+      <text x="0" y="16" font-weight="700" fill="#FBBF24">PRIMARY INTERFACE:</text>
+      <text x="0" y="34">• Central Fleet Control Room</text>
+      <text x="0" y="52">• Multi-Corridor Live Fleet Map</text>
+      <text x="0" y="70">• Analytics &amp; KPIs Dashboard</text>
+      <text x="0" y="88">• System Security Audit Logs</text>
+
+      <text x="0" y="120" font-weight="700" fill="#FBBF24">KEY CAPABILITIES:</text>
+      <text x="0" y="138">• Full CRUD Drivers &amp; Fleet</text>
+      <text x="0" y="156">• Route &amp; Stop Configuration</text>
+      <text x="0" y="174">• MAUT Rescue Dispatch Approval</text>
+      <text x="0" y="192">• Broadcast Urgent Alerts</text>
+      <text x="0" y="210">• CSV Attendance &amp; Trip Exports</text>
+
+      <text x="0" y="242" font-weight="700" fill="#FBBF24">SECURITY BOUNDARY:</text>
+      <text x="0" y="260">• Coordinator / Super Admin Auth</text>
+      <text x="0" y="278">• Immutable Audit Trail Logs</text>
+      <text x="0" y="296">• Multi-Tenant Separation</text>
+    </g>
+  </g>
+</svg>

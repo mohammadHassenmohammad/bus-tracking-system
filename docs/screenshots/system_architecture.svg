@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 620" width="100%" height="100%">
+  <defs>
+    <linearGradient id="layerGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1100" height="620" fill="#0B132B" rx="16" />
+
+  <!-- Title Header -->
+  <g transform="translate(50, 40)">
+    <text x="0" y="0" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800">
+      System Architecture &amp; Data Telemetry Pipeline
+    </text>
+    <text x="0" y="24" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">
+      End-to-End Reactive Flow: Driver Hardware GPS → Real-Time Telemetry Engine → Firebase Cloud → Student/Parent/Admin Clients
+    </text>
+  </g>
+
+  <!-- LAYER 1: PRESENTATION & CLIENT APPS -->
+  <g transform="translate(50, 95)" filter="url(#cardShadow)">
+    <rect width="1000" height="105" rx="12" fill="url(#layerGrad1)" stroke="#334155" stroke-width="1.5" />
+    <text x="25" y="28" fill="#38BDF8" font-family="sans-serif" font-size="12" font-weight="800" letter-spacing="1">1. PRESENTATION LAYER (CLIENTS)</text>
+
+    <!-- Card 1: Flutter App -->
+    <g transform="translate(25, 40)">
+      <rect width="450" height="52" rx="8" fill="#1E293B" stroke="#3B82F6" stroke-width="1.2" />
+      <circle cx="25" cy="26" r="14" fill="#3B82F6" opacity="0.2"/>
+      <text x="25" y="31" fill="#60A5FA" font-family="sans-serif" font-size="16" text-anchor="middle">📱</text>
+      <text x="50" y="22" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="700">One Unified Flutter Mobile App (Android/iOS)</text>
+      <text x="50" y="39" fill="#94A3B8" font-family="sans-serif" font-size="11">Driver Mode • Student Mode • Parent Mode (Strict Role Auth)</text>
+    </g>
+
+    <!-- Card 2: Web Admin -->
+    <g transform="translate(510, 40)">
+      <rect width="465" height="52" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.2" />
+      <circle cx="25" cy="26" r="14" fill="#10B981" opacity="0.2"/>
+      <text x="25" y="31" fill="#34D399" font-family="sans-serif" font-size="16" text-anchor="middle">🖥️</text>
+      <text x="50" y="22" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="700">Enterprise Web Administration Dashboard</text>
+      <text x="50" y="39" fill="#94A3B8" font-family="sans-serif" font-size="11">Central Fleet Dispatch • Live Maps • CRUD • Emergency SOS Desk</text>
+    </g>
+  </g>
+
+  <!-- CONNECTOR 1 -->
+  <g transform="translate(550, 203)">
+    <line x1="0" y1="0" x2="0" y2="18" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4,4" />
+    <polygon points="-4,18 4,18 0,25" fill="#38BDF8" />
+  </g>
+
+  <!-- LAYER 2: TELEMETRY & ROUTING COMPUTATION ENGINE -->
+  <g transform="translate(50, 230)" filter="url(#cardShadow)">
+    <rect width="1000" height="120" rx="12" fill="url(#layerGrad1)" stroke="#334155" stroke-width="1.5" />
+    <text x="25" y="26" fill="#10B981" font-family="sans-serif" font-size="12" font-weight="800" letter-spacing="1">2. TELEMETRY, KINEMATICS &amp; RESCUE ENGINE (NODE.JS)</text>
+
+    <!-- Sub-module 1 -->
+    <g transform="translate(25, 40)">
+      <rect width="225" height="65" rx="8" fill="#0F172A" stroke="#475569" stroke-width="1"/>
+      <text x="15" y="22" fill="#F8FAFC" font-family="sans-serif" font-size="12" font-weight="700">📡 GPS Ingestion Guard</text>
+      <text x="15" y="38" fill="#94A3B8" font-family="sans-serif" font-size="10">50m Accuracy Threshold</text>
+      <text x="15" y="52" fill="#94A3B8" font-family="sans-serif" font-size="10">&gt;136 km/h Jump Rejection</text>
+    </g>
+
+    <!-- Sub-module 2 -->
+    <g transform="translate(265, 40)">
+      <rect width="225" height="65" rx="8" fill="#0F172A" stroke="#475569" stroke-width="1"/>
+      <text x="15" y="22" fill="#F8FAFC" font-family="sans-serif" font-size="12" font-weight="700">🧭 Navigation &amp; ETA</text>
+      <text x="15" y="38" fill="#94A3B8" font-family="sans-serif" font-size="10">Road-Following Corridors</text>
+      <text x="15" y="52" fill="#94A3B8" font-family="sans-serif" font-size="10">Exponential Speed Smoothing</text>
+    </g>
+
+    <!-- Sub-module 3 -->
+    <g transform="translate(505, 40)">
+      <rect width="225" height="65" rx="8" fill="#0F172A" stroke="#475569" stroke-width="1"/>
+      <text x="15" y="22" fill="#F8FAFC" font-family="sans-serif" font-size="12" font-weight="700">🚑 MAUT Rescue Ranker</text>
+      <text x="15" y="38" fill="#94A3B8" font-family="sans-serif" font-size="10">Capacity Constraint Guard</text>
+      <text x="15" y="52" fill="#94A3B8" font-family="sans-serif" font-size="10">Proximity &amp; ETA Weighting</text>
+    </g>
+
+    <!-- Sub-module 4 -->
+    <g transform="translate(745, 40)">
+      <rect width="230" height="65" rx="8" fill="#0F172A" stroke="#475569" stroke-width="1"/>
+      <text x="15" y="22" fill="#F8FAFC" font-family="sans-serif" font-size="12" font-weight="700">🛡️ Auth &amp; Attendance</text>
+      <text x="15" y="38" fill="#94A3B8" font-family="sans-serif" font-size="10">HMAC-SHA256 Signed QR</text>
+      <text x="15" y="52" fill="#94A3B8" font-family="sans-serif" font-size="10">Strict Role Mismatch Filter</text>
+    </g>
+  </g>
+
+  <!-- CONNECTOR 2 -->
+  <g transform="translate(550, 353)">
+    <line x1="0" y1="0" x2="0" y2="18" stroke="#10B981" stroke-width="2" stroke-dasharray="4,4" />
+    <polygon points="-4,18 4,18 0,25" fill="#10B981" />
+  </g>
+
+  <!-- LAYER 3: PERSISTENCE & REAL-TIME STATE (FIREBASE) -->
+  <g transform="translate(50, 380)" filter="url(#cardShadow)">
+    <rect width="1000" height="105" rx="12" fill="url(#layerGrad1)" stroke="#334155" stroke-width="1.5" />
+    <text x="25" y="26" fill="#F59E0B" font-family="sans-serif" font-size="12" font-weight="800" letter-spacing="1">3. REALTIME CLOUD STATE &amp; DATABASE (FIREBASE ₹0 SPARK TIER)</text>
+
+    <!-- DB Node 1: Realtime DB -->
+    <g transform="translate(25, 38)">
+      <rect width="460" height="52" rx="8" fill="#0F172A" stroke="#F59E0B" stroke-width="1.2" />
+      <text x="20" y="22" fill="#FBBF24" font-family="sans-serif" font-size="13" font-weight="700">Firebase Realtime Database (Sub-second Sync)</text>
+      <text x="20" y="39" fill="#94A3B8" font-family="sans-serif" font-size="11">/liveLocations/{busId} • /activeTrips • /activeIncidents • /manifests</text>
+    </g>
+
+    <!-- DB Node 2: Firestore DB -->
+    <g transform="translate(505, 38)">
+      <rect width="470" height="52" rx="8" fill="#0F172A" stroke="#FB923C" stroke-width="1.2" />
+      <text x="20" y="22" fill="#FB923C" font-family="sans-serif" font-size="13" font-weight="700">Cloud Firestore (Authoritative Catalog &amp; Audit)</text>
+      <text x="20" y="39" fill="#94A3B8" font-family="sans-serif" font-size="11">drivers/ • buses/ • routes/ • students/ • guardians/ • audit_logs/</text>
+    </g>
+  </g>
+
+  <!-- CONNECTOR 3 -->
+  <g transform="translate(550, 488)">
+    <line x1="0" y1="0" x2="0" y2="18" stroke="#F59E0B" stroke-width="2" stroke-dasharray="4,4" />
+    <polygon points="-4,18 4,18 0,25" fill="#F59E0B" />
+  </g>
+
+  <!-- LAYER 4: GEOSPATIAL & MAPPING INFRASTRUCTURE -->
+  <g transform="translate(50, 515)" filter="url(#cardShadow)">
+    <rect width="1000" height="75" rx="12" fill="url(#layerGrad1)" stroke="#334155" stroke-width="1.5" />
+    <text x="25" y="24" fill="#A78BFA" font-family="sans-serif" font-size="12" font-weight="800" letter-spacing="1">4. GEOSPATIAL &amp; MAPPING INFRASTRUCTURE</text>
+    
+    <g transform="translate(25, 34)">
+      <text x="0" y="20" fill="#E2E8F0" font-family="sans-serif" font-size="12" font-weight="600">
+        🗺️ OpenStreetMap / OpenFreeMap Vector Tiles &amp; Leaflet Engine • OSRM Routing Geometry (620+ Waypoints per Corridor) • WGS-84 Geodesy
+      </text>
+    </g>
+  </g>
+</svg>

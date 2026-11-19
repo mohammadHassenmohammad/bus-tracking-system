@@ -1,0 +1,5 @@
+IntervalSec,AvgLatencyMs,BandwidthKbPerHour,FreshnessSec,DailyWritesPerBus,SparkTierCompliant
+1,145,648,1,14400,false
+3,195,216,3,4800,true
+5,240,129.6,5,2880,true
+10,370,64.8,10,1440,true

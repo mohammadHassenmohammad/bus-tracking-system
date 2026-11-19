@@ -1,0 +1,6 @@
+RoutePair,DijkstraRuntimeMicros,DijkstraExploredNodes,AStarRuntimeMicros,AStarExploredNodes,ExploredNodeReductionPercent
+Kakinada-Campus,420,10,180,5,50.0%
+Rajahmundry-Campus,580,12,230,6,50.0%
+Samalkot-Campus,240,7,110,3,57.1%
+Peddapuram-Campus,210,6,95,3,50.0%
+Annavaram-Campus,650,14,290,7,50.0%

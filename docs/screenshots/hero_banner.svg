@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1329" />
+      <stop offset="50%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="50%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+    <linearGradient id="busGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="360" fill="url(#bg)" />
+  <rect width="1200" height="360" fill="url(#grid)" />
+
+  <!-- Decorative Orbit Lines & GPS Waves -->
+  <circle cx="980" cy="180" r="140" fill="none" stroke="rgba(59, 130, 246, 0.15)" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <circle cx="980" cy="180" r="100" fill="none" stroke="rgba(16, 185, 129, 0.2)" stroke-width="1.5"/>
+  <circle cx="980" cy="180" r="60" fill="rgba(59, 130, 246, 0.08)"/>
+
+  <!-- Satellite Icon -->
+  <g transform="translate(970, 70)">
+    <circle cx="10" cy="10" r="18" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+    <path d="M 5 5 L 15 15 M 5 15 L 15 5" stroke="#38BDF8" stroke-width="2"/>
+    <path d="M 0 10 A 10 10 0 0 1 20 10" fill="none" stroke="#10B981" stroke-width="1.5" stroke-dasharray="2,2"/>
+  </g>
+
+  <!-- Glowing Bus Visualization -->
+  <g transform="translate(915, 130)" filter="url(#glow)">
+    <!-- Bus Body -->
+    <rect x="0" y="20" width="130" height="70" rx="14" fill="url(#busGrad)" />
+    <!-- Bus Windshield & Windows -->
+    <rect x="10" y="28" width="32" height="24" rx="4" fill="#0F172A" />
+    <rect x="48" y="28" width="22" height="20" rx="3" fill="#1E293B" />
+    <rect x="74" y="28" width="22" height="20" rx="3" fill="#1E293B" />
+    <rect x="100" y="28" width="20" height="20" rx="3" fill="#1E293B" />
+    <!-- Headlights -->
+    <circle cx="8" cy="68" r="4" fill="#FEF08A" />
+    <circle cx="122" cy="68" r="4" fill="#EF4444" />
+    <!-- Wheels -->
+    <circle cx="28" cy="90" r="12" fill="#0F172A" stroke="#94A3B8" stroke-width="3"/>
+    <circle cx="102" cy="90" r="12" fill="#0F172A" stroke="#94A3B8" stroke-width="3"/>
+    <!-- Radar Pulse -->
+    <circle cx="65" cy="55" r="28" fill="none" stroke="#60A5FA" stroke-width="2" opacity="0.6"/>
+  </g>
+
+  <!-- Left Header Content -->
+  <g transform="translate(70, 60)">
+    <!-- Badge -->
+    <rect x="0" y="0" width="230" height="28" rx="14" fill="rgba(16, 185, 129, 0.15)" stroke="#10B981" stroke-width="1"/>
+    <circle cx="14" cy="14" r="5" fill="#10B981" />
+    <text x="26" y="18" fill="#34D399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="1">LIVE ENTERPRISE PLATFORM</text>
+
+    <!-- Main Title -->
+    <text x="0" y="66" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="38" font-weight="900" letter-spacing="-0.5">
+      Smart Campus Bus Tracking
+    </text>
+    <text x="0" y="104" fill="url(#accent)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="800">
+      Real-Time Fleet &amp; Transit Ecosystem
+    </text>
+
+    <!-- Subtitle Description -->
+    <text x="0" y="138" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="400">
+      One Unified Flutter App (Driver • Student • Parent) + Enterprise Web Control Room
+    </text>
+    <text x="0" y="158" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="400">
+      Sub-second GPS Telemetry • Turn-by-Turn Navigation • HMAC-SHA256 QR Passes • MAUT Rescue
+    </text>
+
+    <!-- Tech Badges -->
+    <g transform="translate(0, 190)">
+      <!-- Badge 1: Flutter -->
+      <rect x="0" y="0" width="95" height="30" rx="6" fill="#1E293B" stroke="#334155"/>
+      <text x="47" y="19" fill="#38BDF8" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle">⚡ Flutter 3</text>
+
+      <!-- Badge 2: Firebase RTDB -->
+      <rect x="105" y="0" width="130" height="30" rx="6" fill="#1E293B" stroke="#334155"/>
+      <text x="170" y="19" fill="#F59E0B" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle">🔥 Firebase RTDB</text>
+
+      <!-- Badge 3: Node.js Engine -->
+      <rect x="245" y="0" width="115" height="30" rx="6" fill="#1E293B" stroke="#334155"/>
+      <text x="302" y="19" fill="#10B981" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle">🟢 Node Engine</text>
+
+      <!-- Badge 4: OpenStreetMap -->
+      <rect x="370" y="0" width="145" height="30" rx="6" fill="#1E293B" stroke="#334155"/>
+      <text x="442" y="19" fill="#A78BFA" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle">🗺️ OpenStreetMap</text>
+
+      <!-- Badge 5: Spark Plan Zero Cost -->
+      <rect x="525" y="0" width="125" height="30" rx="6" fill="#1E293B" stroke="#334155"/>
+      <text x="587" y="19" fill="#34D399" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle">💰 ₹0 Free Tier</text>
+    </g>
+  </g>
+</svg>

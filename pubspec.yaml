@@ -1,0 +1,63 @@
+name: smart_campus_transport
+description: "Smart Campus Transport: Real-Time GPS Tracking, Predictive Arrival Estimation, Intelligent Emergency Assistance and Automated Attendance Management"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: ">=3.16.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # State Management & Architecture
+  flutter_riverpod: ^2.5.1
+  provider: ^6.1.2
+
+  # Firebase Suite (Web & Mobile compatible)
+  firebase_core: ^2.30.0
+  firebase_auth: ^4.19.4
+  cloud_firestore: ^4.17.2
+  firebase_database: ^10.5.4
+  firebase_messaging: ^14.9.1
+
+  # Maps & GIS
+  maplibre_gl: ^0.16.0
+  latlong2: ^0.9.1
+
+  # Hardware, Sensors & Location
+  geolocator: ^11.0.0
+  sensors_plus: ^5.0.1
+  qr_flutter: ^4.1.0
+  mobile_scanner: ^5.1.1
+
+  # UI, Icons & Theming
+  cupertino_icons: ^1.0.6
+  google_fonts: ^6.2.1
+  flutter_svg: ^2.0.10+1
+  intl: ^0.19.0
+  fl_chart: ^0.68.0
+
+  # Utilities & Networking
+  uuid: ^4.4.0
+  crypto: ^3.0.3
+  http: ^1.2.1
+  shared_preferences: ^2.2.3
+  csv: ^6.0.0
+  url_launcher: ^6.2.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/map_styles/
+    - assets/demo_data/
+
